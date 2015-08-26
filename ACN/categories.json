@@ -1,0 +1,28 @@
+{
+    "title": "ACN RSS JSON EXAMPLE",
+    "elements": [{
+                 "id": 1,
+                 "name": "Politics"
+                 },
+                 {
+                 "id": 2,
+                 "name": "Business"
+                 },
+                 {
+                 "id": 3,
+                 "name": "Society Sciencie"
+                 },
+                 {
+                 "id": 4,
+                 "name": "Life & Style"
+                 },
+                 {
+                 "id": 5,
+                 "name": "Culture"
+                 },
+                 {
+                 "id": 6,
+                 "name": "Sports"
+                 }],
+    "totalResults": 6
+}

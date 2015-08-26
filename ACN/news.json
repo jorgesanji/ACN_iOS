@@ -1,0 +1,95 @@
+{
+    "title": "ACN RSS JSON EXAMPLE",
+    "elements": [{
+                 "id":1,
+                 "title": "Title",
+                 "subtitle": "Subtitol",
+                 "type": "noticia",
+                 "categories": ["Societat",
+                                "Politica"],
+                 "url": "http://www.acn.cat/index.php/noticia/noticia-1",
+                 "created_date":"2014-12-08 16:05:13 +0000"
+                 },
+                 {
+                 "id":2,
+                 "title": "Title",
+                 "subtitle": "Subtitol",
+                 "type": "noticia",
+                 "categories": ["Societat",
+                                "Politica"],
+                 "url": "http://www.acn.cat/index.php/noticia/noticia-1",
+                 "created_date":"2014-12-08 16:05:13 +0000"
+                 },
+                 {
+                 "id":3,
+                 "title": "Title",
+                 "subtitle": "Subtitol",
+                 "type": "noticia",
+                 "categories": ["Societat",
+                                "Politica"],
+                 "url": "http://www.acn.cat/index.php/noticia/noticia-1",
+                 "created_date":"2014-12-08 16:05:13 +0000"
+                 },
+                 {
+                 "id":4,
+                 "title": "Title",
+                 "subtitle": "Subtitol",
+                 "type": "noticia",
+                 "categories": ["Societat",
+                                "Politica"],
+                 "url": "http://www.acn.cat/index.php/noticia/noticia-1",
+                 "created_date":"2014-12-08 16:05:13 +0000"
+                 },
+                 {
+                 "id":5,
+                 "title": "Title",
+                 "subtitle": "Subtitol",
+                 "type": "noticia",
+                 "categories": ["Societat",
+                                "Politica"],
+                 "url": "http://www.acn.cat/index.php/noticia/noticia-1",
+                 "created_date":"2014-12-08 16:05:13 +0000"
+                 },
+                 {
+                 "id":6,
+                 "title": "Title",
+                 "subtitle": "Subtitol",
+                 "type": "noticia",
+                 "categories": ["Societat",
+                                "Politica"],
+                 "url": "http://www.acn.cat/index.php/noticia/noticia-1",
+                 "created_date":"2014-12-08 16:05:13 +0000"
+                 },
+                 {
+                 "id":7,
+                 "title": "Title",
+                 "subtitle": "Subtitol",
+                 "type": "noticia",
+                 "categories": ["Societat",
+                                "Politica"],
+                 "url": "http://www.acn.cat/index.php/noticia/noticia-1",
+                 "created_date":"2014-12-08 16:05:13 +0000"
+                 },
+                 {
+                 "id":8,
+                 "title": "Title",
+                 "subtitle": "Subtitol",
+                 "type": "noticia",
+                 "categories": ["Societat",
+                                "Politica"],
+                 "url": "http://www.acn.cat/index.php/noticia/noticia-1",
+                 "created_date":"2014-12-08 16:05:13 +0000"
+                 },
+                 {
+                 "id":9,
+                 "title": "Title",
+                 "subtitle": "Subtitol",
+                 "type": "noticia",
+                 "categories": ["Societat",
+                                "Politica"],
+                 "url": "http://www.acn.cat/index.php/noticia/noticia-1",
+                 "created_date":"2014-12-08 16:05:13 +0000"
+                 
+                 }],
+    "totalResults": 10
+}

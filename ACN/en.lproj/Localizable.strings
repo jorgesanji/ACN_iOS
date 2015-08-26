@@ -1,0 +1,28 @@
+/*
+ Localizable.strings
+ ACN
+ 
+ Created by Flamingo Partners on 6/12/14.
+ Copyright (c) 2014 Jorge Sanmartin. All rights reserved.
+ */
+
+
+"MNM_BOTTOM_PTR_PULL_TEXT" = "Pull to get more...";
+"MNM_BOTTOM_PTR_RELEASE_TEXT" = "Release now!";
+"MNM_BOTTOM_PTR_LOADING_TEXT" = "Loading...";
+
+"search_name_category"="Search";
+"login_name_category"="Login";
+"favourites_name_category"="Favourite";
+"about_name_category"="About";
+"title_acn_nca"="CNA";
+"home_title"="Home";
+
+"cat_language"="CAT";
+"es_language"="ES";
+
+"placeholder_loging"="Introduzca su numero de telefono";
+"Login_text_button"="Login";
+
+"title_about"="The Catalan News Agency";
+"content_about"="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam a blandit metus. Phasellus dapibus dui nec placerat ultrices. Aliquam dapibus diam ante, eu facilisis justo laoreet sed. Etiam iaculis erat in egestas iaculis. Curabitur sit amet metus diam. Vestibulum ultricies, dui at efficitur tempor, erat turpis placerat mi, in elementum urna magna eu nulla. Praesent in erat ut quam egestas pretium. Cras aliquam euismod hendrerit.\nAliquam quam felis, ultrices ut aliquam vel, commodo pellentesque libero. Vestibulum a consequat libero. Vestibulum et imperdiet nisl. Phasellus blandit enim sit amet lectus dictum viverra. Phasellus et interdum ligula. In eget venenatis libero. Pellentesque nisl libero, elementum eu elementum a, bibendum at sem. Nullam nisi felis, vulputate vel nisi ultrices, placerat dictum urna. Vivamus nulla quam, porttitor ut fringilla at, rhoncus vitae mauris. Praesent eget tincidunt nibh.\nVestibulum elementum commodo sem, sit amet tincidunt nunc pharetra hendrerit. Sed in lorem egestas, tempor dolor nec, sodales velit. Etiam a vestibulum nisi, a blandit metus. Cras rutrum nisi in ex hendrerit eleifend. Nulla vestibulum urna vitae ultricies hendrerit. Vivamus metus elit, pulvinar at eros at, mollis pretium erat. Phasellus non pellentesque nulla, at ultrices leo. Morbi nec risus arcu. Nam rutrum et elit id vestibulum. Donec tincidunt et ex et maximus. Integer elit tortor, convallis eget tortor ac, auctor facilisis est. Aliquam commodo est eu orci lobortis convallis.\nVestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In sed dapibus metus. Donec malesuada a metus vel egestas. Aliquam vel tellus vel lectus porttitor facilisis ac vel orci. Mauris sed nibh sed justo maximus convallis. Sed ac mauris tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam viverra tortor nisl, sed finibus risus porta a. Nullam commodo congue sodales.";
