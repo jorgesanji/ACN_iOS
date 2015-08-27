@@ -53,7 +53,11 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadNewsNotification:) name:reloadNewsNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reloadNewsNotification:)
+                                                 name:reloadNewsNotification
+                                               object:nil];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(openMenu:)
                                                  name:SlideNavigationControllerDidOpen
@@ -96,13 +100,6 @@
     self.navigationItem.rightBarButtonItem = languagebutton;
 }
 
--(void)openMenu:(id)nt{
-    [self dissmiss:_holderKeyboard];
-}
-
--(void)reloadNewsNotification:(id)nt{
-    [table reloadData];
-}
 
 - (void)addKeyboardDissmiser{
     int topHolderButton = (searchBar.height + [[self navigationController] navigationBar].height + [UIApplication sharedApplication].statusBarFrame.size.height);
@@ -124,6 +121,16 @@
         [self reloadDataIndexNext:0];
         _isLaunchedfromEmptySearching = NO;
     }
+}
+
+#pragma mark - NSNotificationCenter
+
+-(void)openMenu:(id)nt{
+    [self dissmiss:_holderKeyboard];
+}
+
+-(void)reloadNewsNotification:(id)nt{
+    [table reloadData];
 }
 
 #pragma mark - Load Data
@@ -249,7 +256,6 @@
     }
 }
 
-
 -(IBAction)dissmiss:(UIButton *)sender{
     if (!sender) {
         return;
@@ -354,7 +360,7 @@
     [self dissmiss:_holderKeyboard];
 }
 
-#pragma mark - SlideNavigationController Methods -
+#pragma mark - SlideNavigationController -
 
 - (BOOL)slideNavigationControllerShouldDisplayLeftMenu{
     return YES;

@@ -16,13 +16,10 @@
 #import "UIImageView+Load.h"
 
 @interface PageNewView ()<UIScrollViewDelegate>
-
 @property(nonatomic ,strong)id noticia;
-
 @end
 
 #define HelveticaNeueBold @"HelveticaNeue-Bold"
-
 
 @implementation PageNewView
 
