@@ -46,8 +46,7 @@
 }
 
 - (void)initUI{
-    self.view.height = [[UIScreen mainScreen] bounds].size.height;
-    self.view.width = [[UIScreen mainScreen] bounds].size.width;
+    [self.view sizeToScreenBounds];
     telefono.placeholder = [LocalizationHelper getPlaceholderName];
     bottomLine.backgroundColor = [UIColor getLightGrayColor];
     telefono.delegate = self;

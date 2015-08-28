@@ -17,7 +17,7 @@
 #import "AlertManager.h"
 #import "Common.h"
 
-@interface FavouriesVC ()<UITableViewDataSource,UITableViewDelegate, NewCellDelegate, UISearchBarDelegate>
+@interface FavouriesVC ()<UITableViewDataSource,UITableViewDelegate, UISearchBarDelegate>
 @property(nonatomic, strong)NSMutableArray *mData;
 @property(nonatomic, strong)NSString *wordToSearch;
 @property(nonatomic, strong)UIButton *holderKeyboardFav;
@@ -51,8 +51,7 @@
     self.view.width = [[UIScreen mainScreen] bounds].size.width;
     noFavourites.textColor = [UIColor getPrimaryColor];
     noFavourites.text = [LocalizationHelper getNoFavouriteName];
-    noFavourites.left =  self.view.width/2 - noFavourites.width/2;
-    noFavourites.top =  self.view.height/2 - noFavourites.height/2;
+    [noFavourites centerInSuperView];
     searchBar.tintColor = [UIColor getPrimaryColor];
     searchBar.barTintColor = [UIColor getLightGrayColor];
     [[self navigationController] navigationBar].barTintColor = [UIColor getLightGrayColor];
@@ -94,9 +93,25 @@
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:CellIdentifier owner:self options:nil];
         cell = [nib objectAtIndex:0];
     }
-    id notification = [_mData objectAtIndex:indexPath.row];
-    cell.delegate = self;
-    [cell setCellWithNoticia:notification enabled:NO];
+    Noticia * noticia = [_mData objectAtIndex:indexPath.row];
+    [cell setCellWithNoticia:noticia enabled:NO];
+    
+    cell.clickFavourite = ^(UIButton * sender){
+        
+        [noticia setIsFavourite:[NSNumber numberWithBool:NO]];
+        [[DatabaseManager sharedInstance] saveCoreDataContext];
+        NSInteger index = [_mData indexOfObject:noticia];
+        [table beginUpdates];
+        [_mData removeObject:noticia];
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
+        [table deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                     withRowAnimation:UITableViewRowAnimationFade];
+        [table endUpdates];
+        [self validateData];
+        [[NSNotificationCenter defaultCenter] postNotificationName:reloadNewsNotification
+                                                            object:nil];
+    };
+    
     return cell;
 }
 
@@ -105,25 +120,6 @@
     vc.title = self.title;
     [self.navigationController pushViewController:vc animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-}
-
-#pragma mark - Noticia delegate
-
-- (void)removeNewSelected:(Noticia *)noticia{
-    [noticia setIsFavourite:[NSNumber numberWithBool:NO]];
-    [[DatabaseManager sharedInstance] saveCoreDataContext];
-    NSInteger index = [_mData indexOfObject:noticia];
-    [table beginUpdates];
-    [_mData removeObject:noticia];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
-    [table deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
-                 withRowAnimation:UITableViewRowAnimationFade];
-    [table endUpdates];
-    [self validateData];
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [[NSNotificationCenter defaultCenter] postNotificationName:reloadNewsNotification
-                                                            object:nil];
-    });
 }
 
 #pragma mark - UISearchBar delegate

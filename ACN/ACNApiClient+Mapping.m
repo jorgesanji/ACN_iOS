@@ -79,12 +79,9 @@
 + (RKResponseDescriptor *)descriptorNoticia{
     RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[NoticiaACN class]];
     [mapping addAttributeMappingsFromDictionary:[ACNApiClient mappACNNoticias]];
+    mapping.dateFormatters = @[[NSDateFormatter formattDateMatching]];
     
-    NSDateFormatter* dateFormatter = [NSDateFormatter formattDateMatching];
-    mapping.dateFormatters = [NSArray arrayWithObject: dateFormatter];
-    
-    NSString *rootKeyPath = @"elements";
-    return [RKResponseDescriptor responseDescriptorWithMapping:mapping method:RKRequestMethodAny pathPattern:nil keyPath:rootKeyPath statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+    return [RKResponseDescriptor responseDescriptorWithMapping:mapping method:RKRequestMethodAny pathPattern:nil keyPath:@"elements" statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
 }
 
 @end

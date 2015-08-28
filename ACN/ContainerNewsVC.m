@@ -55,8 +55,7 @@
 
 -(void)initUI{
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.view.width = [UIScreen mainScreen].bounds.size.width;
-    self.view.height = [UIScreen mainScreen].bounds.size.height;
+    [self.view sizeToScreenBounds];
     CGFloat topPosition = [self.navigationController navigationBar].frame.size.height + [UIApplication sharedApplication].statusBarFrame.size.height;
     CGRect frame = CGRectMake(0.0f, topPosition,self.view.width,self.view.height);
     self.paginator = [[UIPaginator alloc] initWithFrame:frame insetsOfPageView:UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 0.0f)];

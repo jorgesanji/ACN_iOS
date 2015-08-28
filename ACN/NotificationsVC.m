@@ -61,8 +61,7 @@
     [[self navigationController] navigationBar].barTintColor = [UIColor getLightGrayColor];
     CGFloat top = [[self navigationController] navigationBar].height;
     CGFloat bottom = [[UIScreen mainScreen] bounds].size.height;
-    self.view.height = bottom;
-    self.view.width = [[UIScreen mainScreen] bounds].size.width;
+    [self.view sizeToScreenBounds];
     CGFloat heightTable = bottom - top;
     table.height = heightTable + searchBar.height + [UIApplication sharedApplication].statusBarFrame.size.height;
     table.width = [[UIScreen mainScreen] bounds].size.width;

@@ -42,8 +42,8 @@
     [[[self navigationController] navigationBar] setHidden:YES];
     self.automaticallyAdjustsScrollViewInsets = NO;
     
-    self.view.width = [UIScreen mainScreen].bounds.size.width;
-    self.view.height = [UIScreen mainScreen].bounds.size.height + + [UIApplication sharedApplication].statusBarFrame.size.height;
+    [self.view sizeToScreenBounds];
+    self.view.height += [UIApplication sharedApplication].statusBarFrame.size.height;
     
     CGRect frame = CGRectMake(0.0f, 0.0f,self.view.width,self.view.height);
     self.paginator = [[UIPaginator alloc] initWithFrame:frame insetsOfPageView:UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 0.0f)];

@@ -8,12 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class NewCell;
-@class Noticia;
-@protocol NewCellDelegate <NSObject>
-@optional
-- (void)removeNewSelected:(Noticia *)noticia;
-@end
+typedef void (^onClickFavourite)(UIButton *sender);
 
 @interface NewCell : UITableViewCell{
     IBOutlet UILabel *titleNew;
@@ -21,7 +16,7 @@
     IBOutlet UIButton *favourite;
 }
 
-@property(nonatomic, assign)id<NewCellDelegate>delegate;
+@property(nonatomic, copy)onClickFavourite clickFavourite;
 
 -(void)setCellWithNoticia:(id)noticia enabled:(BOOL)enabled;
 

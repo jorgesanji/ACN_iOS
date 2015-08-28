@@ -17,12 +17,9 @@
 #define KMinWidth 200.0f
 
 @interface NewCell()
-@property(nonatomic ,strong)NSObject *noticia;
 @end
 
 @implementation NewCell
-@synthesize noticia = _noticia;
-@synthesize delegate = _delegate;
 
 - (void)awakeFromNib {
     // Initialization code
@@ -34,10 +31,7 @@
     // Configure the view for the selected state
 }
 
-
 -(void)setCellWithNoticia:(id)noticia enabled:(BOOL)enabled{
-    
-    self.noticia = noticia;
     
     NSString *title = nil;
     NSString *subtitle = nil;
@@ -47,8 +41,8 @@
     BOOL isFavourite = NO;
     BOOL useFav = YES;
     
-    if ([_noticia isKindOfClass:[Notifications class]]) {
-        Notifications *nt = (Notifications *)_noticia;
+    if ([noticia isKindOfClass:[Notifications class]]) {
+        Notifications *nt = (Notifications *)noticia;
         title = nt.title;
         subtitle = nt.subtitle;
         description = nt.description;
@@ -57,7 +51,7 @@
         isFavourite = [nt.isFavourite boolValue];
         useFav = NO;
     }else{
-        Noticia *nt = (Noticia *)_noticia;
+        Noticia *nt = (Noticia *)noticia;
         title = nt.title;
         subtitle = nt.subtitle;
         description = nt.descriptionFeed;
@@ -74,16 +68,13 @@
         strDate = [dateFormater stringFromDate:creation_date];
     }
     
-    titleNew.textColor = [UIColor getPrimaryColor];
+    dateNew.text = strDate;
     dateNew.textColor = [UIColor getgrayColor];
     
+    titleNew.textColor = [UIColor getPrimaryColor];
     titleNew.text = title;
     [titleNew sizeToFit];
-    if(titleNew.width < KMinWidth){
-        titleNew.width  = KMinWidth;
-    }
-    
-    dateNew.text = strDate;
+    titleNew.width  = (titleNew.width < KMinWidth) ? KMinWidth : titleNew.width;
     
     if (useFav) {
         favourite.layer.cornerRadius = [favourite width]/2;
@@ -91,32 +82,16 @@
         favourite.layer.borderWidth = 7.0f;
         favourite.layer.masksToBounds = YES;
         favourite.enabled = YES;
-        
-        favourite.backgroundColor = [UIColor clearColor];
-        if (isFavourite) {
-            favourite.backgroundColor = [UIColor getPrimaryColor];
-        }
+        favourite.backgroundColor = (isFavourite) ? [UIColor getPrimaryColor] : [UIColor clearColor];
     }else{
         [favourite setHidden:YES];
     }
 }
 
 -(IBAction)makeFavourite:(UIButton *)sender{
-    if ([(NSObject*)self.delegate respondsToSelector:@selector(removeNewSelected:)]){
-        Noticia *nt = (Noticia *)_noticia;
-        [self.delegate removeNewSelected:nt];
-    }else{
-        Noticia *nt = (Noticia *)_noticia;
-        BOOL isStarred = [[nt isFavourite] boolValue];
-        if (isStarred) {
-            nt.isFavourite = [NSNumber numberWithBool:!isStarred];
-            favourite.backgroundColor = [UIColor clearColor];
-        }else{
-            nt.isFavourite = [NSNumber numberWithBool:!isStarred];
-            sender.backgroundColor = [UIColor getPrimaryColor];
-        }
-        [[DatabaseManager sharedInstance] saveCoreDataContext];
-        [sender scaleViewAnimation];
+        
+    if (_clickFavourite) {
+        _clickFavourite(sender);
     }
 }
 

@@ -163,4 +163,15 @@
 
 }
 
+
+- (void)centerInSuperView{
+    self.left =  self.superview.width/2 - self.width/2;
+    self.top =  self.superview.height/2 - self.height/2;
+}
+
+- (void)sizeToScreenBounds{
+    self.width = [[UIScreen mainScreen] bounds].size.width;
+    self.height = [[UIScreen mainScreen] bounds].size.height;
+}
+
 @end

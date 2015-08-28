@@ -24,8 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.view.height = [UIScreen mainScreen].bounds.size.height;
-    self.view.width = [UIScreen mainScreen].bounds.size.width;
+    [self.view sizeToScreenBounds];
     contentAbout.top = 10.0f;
     contentAbout.text = [LocalizationHelper getAbout];
     [contentAbout sizeToFit];

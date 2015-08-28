@@ -78,5 +78,9 @@
 
 -(void)scaleViewAnimation;
 
+- (void)centerInSuperView;
+
+- (void)sizeToScreenBounds;
+
 
 @end

@@ -77,15 +77,13 @@
     [[self navigationController] navigationBar].barTintColor = [UIColor getLightGrayColor];
     CGFloat top = [[self navigationController] navigationBar].height;
     CGFloat bottom = [[UIScreen mainScreen] bounds].size.height;
-    self.view.height = bottom;
-    self.view.width = [[UIScreen mainScreen] bounds].size.width;
+    [self.view sizeToScreenBounds];
     
     CGFloat heightTable = bottom - top;
     table.top = top + hStatusBar;
     table.height = heightTable;
     
-    activ.left = self.view.width/2 - activ.width/2;
-    activ.top = self.view.height/2 - activ.height/2;
+    [activ centerInSuperView];
     [activ setHidden:YES];
     [activ stopAnimating];
     
@@ -285,8 +283,17 @@
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:CellIdentifier owner:self options:nil];
         cell = [nib objectAtIndex:0];
     }
-    id noticia = [_mData objectAtIndex:indexPath.row];
+    Noticia *noticia = [_mData objectAtIndex:indexPath.row];
     [cell setCellWithNoticia:noticia enabled:YES];
+    
+    cell.clickFavourite =^(UIButton *sender){
+        BOOL isStarred = [[noticia isFavourite] boolValue];
+        noticia.isFavourite = [NSNumber numberWithBool:!isStarred];
+        sender.backgroundColor = isStarred ? [UIColor clearColor] : [UIColor getPrimaryColor] ;
+        [sender scaleViewAnimation];
+        [[DatabaseManager sharedInstance] saveCoreDataContext];
+    };
+    
     return cell;
 }
 
