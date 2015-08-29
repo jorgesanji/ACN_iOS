@@ -12,6 +12,7 @@ typedef enum {
     LOGOUT = 2
 } LoginState;
 
+#define KMinWidth 200.0f
 #define KMAXpage 20
 #define KTimeOutDefault 60
 #define KHeightRow 80

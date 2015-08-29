@@ -284,7 +284,10 @@
         cell = [nib objectAtIndex:0];
     }
     Noticia *noticia = [_mData objectAtIndex:indexPath.row];
-    [cell setCellWithNoticia:noticia enabled:YES];
+    cell.title = noticia.title;
+    cell.creationDate = noticia.creation_date;
+    cell.hideButtonFavourite = NO;
+    cell.isFavourite  = [noticia.isFavourite boolValue];
     
     cell.clickFavourite =^(UIButton *sender){
         BOOL isStarred = [[noticia isFavourite] boolValue];

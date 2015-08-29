@@ -65,8 +65,7 @@
     CGFloat heightTable = bottom - top;
     table.height = heightTable + searchBar.height + [UIApplication sharedApplication].statusBarFrame.size.height;
     table.width = [[UIScreen mainScreen] bounds].size.width;
-    activ.left = self.view.width/2 - activ.width/2;
-    activ.top = self.view.height/2 - activ.height/2;
+    [activ centerInSuperView];
     [activ startAnimating];
     [activ setHidden:NO];
     [self.view bringSubviewToFront:activ];
@@ -201,8 +200,10 @@
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:CellIdentifier owner:self options:nil];
         cell = [nib objectAtIndex:0];
     }
-    id noticia = [_mData objectAtIndex:indexPath.row];
-    [cell setCellWithNoticia:noticia enabled:YES];
+    Notifications *notificacion = [_mData objectAtIndex:indexPath.row];
+    cell.title = notificacion.title;
+    cell.creationDate = notificacion.creation_date;
+    cell.hideButtonFavourite = YES;
     return cell;
 }
 

@@ -47,8 +47,7 @@
 }
 
 - (void)initUI{
-    self.view.height = [[UIScreen mainScreen] bounds].size.height;
-    self.view.width = [[UIScreen mainScreen] bounds].size.width;
+    [self.view sizeToScreenBounds];
     noFavourites.textColor = [UIColor getPrimaryColor];
     noFavourites.text = [LocalizationHelper getNoFavouriteName];
     [noFavourites centerInSuperView];
@@ -94,7 +93,10 @@
         cell = [nib objectAtIndex:0];
     }
     Noticia * noticia = [_mData objectAtIndex:indexPath.row];
-    [cell setCellWithNoticia:noticia enabled:NO];
+    cell.title = noticia.title;
+    cell.creationDate = noticia.creation_date;
+    cell.hideButtonFavourite = NO;
+    cell.isFavourite  = [noticia.isFavourite boolValue];
     
     cell.clickFavourite = ^(UIButton * sender){
         
